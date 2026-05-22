@@ -1,6 +1,7 @@
 from langchain.tools import tool 
 import requests
 from bs4 import BeautifulSoup
+# pyrefly: ignore [missing-import]
 from tavily import TavilyClient
 import os 
 from dotenv import load_dotenv
@@ -36,4 +37,5 @@ def scrape_url(url: str) -> str:
         return f"Could not scrape URL: {str(e)}"
     
 
-print(scrape_url.invoke("https://blogs.nvidia.com/blog/dell-technologies-agent-enterprise-ai/"))
+if __name__ == "__main__":
+    print(scrape_url.invoke("https://blogs.nvidia.com/blog/dell-technologies-agent-enterprise-ai/"))
